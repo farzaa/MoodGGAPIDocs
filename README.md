@@ -19,7 +19,7 @@ Is **Overwatch** more your thing? Check out [TODO](TODO).
 
 ### Getting Started
 This API offers 4 very simple endpoints. Each endpoint only supports `GET` requests.<br>
-Not all of us are wizards with JSON. Make sure you browse the API on Chrome and download [this](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en) chrome extension. It will save you from many headaches later on.
+The API formats data in JSON, but I'm sure not all of us are wizards with JSON. If you aren't super comfortable with JSON be sure you browse the API on Chrome and download [this](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en) chrome extension. It will save you from many headaches later on.
 
 ### League of Legends API
 `GET` List Of Champions Mood Supports<br>
@@ -44,7 +44,7 @@ The process to access this data is very similar to League of Legends.
 `GET` List Of Heroes Mood Supports<br> 
 ```https://moodggapi.herokuapp.com/api/ow/listOfHeroes```
 
-`GET` A Specific Heroes Data<br>
+`GET` A Specific Hero's Data<br>
 ```https://moodggapi.herokuapp.com/api/ow/<hero_name>```
 
 For example, to access data about Genji, use<br> 
