@@ -1,4 +1,4 @@
-# mood api ([contact me](https://twitter.com/FarzaTV))
+# ![alt_text](https://i.imgur.com/xvvUMf1.png) API 
 
 Yo whats up. These are the docs on how to use the API behind the best thing to ever happen to gaming according to my mother: mood.gg . Lots of people expressed intrests in building things like **Discord Bots, Spotify Apps, iOS/Android versions of mood, plugins for their website, and lots of other cool stuff**. 
 
