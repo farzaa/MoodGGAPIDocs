@@ -1,7 +1,7 @@
 # ![alt_text](https://i.imgur.com/xvvUMf1.png) API
 
 ### Table of Contents
-[Welcome](#welcome)
+[Welcome](#welcome)<br>
 [Getting Started](#getting-started)<br> 
 [League Of Legends API](#league-of-legends-api)<br>
 [Overwatch API](#overwatch-api)<br>
