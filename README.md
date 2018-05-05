@@ -68,14 +68,6 @@ For both **Overwatch** and **League of Legends**, the data under ```/api/ow/<her
     name: String,
     playlistID: String,
     videoArray: [String]
-    suggestionPlaylistID: String
-    suggestionArray: [
-        {
-            videoID: String,
-            likes: Int,
-            dislikes: Int
-        }
-    ]
 }
 ```
 
@@ -83,8 +75,6 @@ For both **Overwatch** and **League of Legends**, the data under ```/api/ow/<her
 - ```name``` - name of the character. 
 - ```playlistID``` - this is the YouTube playlist ID where all the songs are located for the **main** playlist. To access the playlist do -  ```https://www.youtube.com/playlist?list=<insert_playlistID_here>```
 - ```videoArray``` - an array of strings that hold the individual YouTube videoIDs for each song in the main playlist. To access it, do - ```https://www.youtube.com/watch?v=<insert_videoID_here>```.
-- ```suggestionPlaylistID``` - this is the YouTube playlist ID where all the songs are located for the **voting** playlist. To access the playlist do -  ```https://www.youtube.com/playlist?list=<insert_suggestionPlaylistID_here>```.
-- ```suggestionArray``` - an array of objects that hold information related to songs being voted on by users of the site. ```videoID``` is the id of the song that is being voted on. ```likes``` is the # of users who upvoted the song and feel the song belongs in the main playlist. ```dislikes``` is the # of users who feel the song does not belong at all.
 
 
 ### Python Example
