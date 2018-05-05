@@ -106,7 +106,7 @@ print("PlaylistID: " + responseData["playlistID"])
 ```
 
 ### Java Example
-Once again there are many different ways to call API's and parse through JSON's in Java. This example uses the HttpURLConnection library native to Java and the json-simple library which you can find [here](https://code.google.com/archive/p/json-simple/).
+Once again there are many different ways to call API's and parse through JSON's in Java. This example uses the HttpURLConnection library native to Java and the json-simple library which you can find [here](https://code.google.com/archive/p/json-simple/).<br>
 **Step 1:** Make a string variable with the url of the api call you want to make (look above)
 ```java
 String getHeroes = "https://moodggapi.herokuapp.com/api/ow/listOfHeroes";
