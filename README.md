@@ -6,6 +6,8 @@
 [League Of Legends API](#league-of-legends-api)<br>
 [Overwatch API](#overwatch-api)<br>
 [Payload Format](#payload-format)<br>
+[Python Example](#python-example)<br>
+[Java Example](#java-example)<br>
 [Improvements](#improvements)
 
 
@@ -83,6 +85,72 @@ For both **Overwatch** and **League of Legends**, the data under ```/api/ow/<her
 - ```videoArray``` - an array of strings that hold the individual YouTube videoIDs for each song in the main playlist. To access it, do - ```https://www.youtube.com/watch?v=<insert_videoID_here>```.
 - ```suggestionPlaylistID``` - this is the YouTube playlist ID where all the songs are located for the **voting** playlist. To access the playlist do -  ```https://www.youtube.com/playlist?list=<insert_suggestionPlaylistID_here>```.
 - ```suggestionArray``` - an array of objects that hold information related to songs being voted on by users of the site. ```videoID``` is the id of the song that is being voted on. ```likes``` is the # of users who upvoted the song and feel the song belongs in the main playlist. ```dislikes``` is the # of users who feel the song does not belong at all.
+
+
+### Python Example
+There are multiple ways of making API calls using python but this example will use the python 'Requests' library. Use pip to install it if you do not already have it installed. It also uses the python's native json library.<br>
+**Step 1:** Make a variable with the url of the api call you want to make (look above)
+```python 
+getHeroes = "https://moodggapi.herokuapp.com/api/ow/ListOfHeroes"
+```
+**Step 2:** Call 'requests.get' on your variable and use .content to access the results
+```python 
+response = requests.get(getHeroes)
+print(response.content)
+```
+**Step 3:** If retrieving data on a specific hero/champion use .json() to parse through and obtain individual fields
+```python 
+responseData = response.json()
+print("Name: " + responseData["name"])
+print("PlaylistID: " + responseData["playlistID"])
+```
+
+### Java Example
+Once again there are many different ways to call API's and parse through JSON's in Java. This example uses the HttpURLConnection library native to Java and the json-simple library which you can find [here](https://code.google.com/archive/p/json-simple/).
+**Step 1:** Make a string variable with the url of the api call you want to make (look above)
+```java
+String getHeroes = "https://moodggapi.herokuapp.com/api/ow/listOfHeroes";
+```
+**Step 2:** Call the callAPI function and pass it your string
+```java
+System.out.println(callAPI(getHeroes));
+```
+**callAPI Function** (takes in String str as parameter)
+```java
+URL url = new URL(str);
+HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+
+return response.toString();
+```
+**Step 3:** If retrieving data on a specific hero/champion call the parseJSON function to be able to access individual fields and pass it a string similar to Step 1 but with the hero/champion name rather than listOfHeroes
+```java
+JSONObject obj = parseJSON(callAPI(getSpecificHero));
+System.out.println(obj.get("name"));
+System.out.println(obj.get("playlistID"));
+```
+**parseJSON Function** (takes in String str as parameter)
+```java
+JSONObject jsonObj = new JSONObject();
+JSONParser parser = new JSONParser();
+try {
+    Object obj = parser.parse(str);
+    JSONArray array = new JSONArray();
+    array.add(obj);
+    jsonObj = (JSONObject)array.get(0);
+}catch(ParseException pe){
+    System.out.println("position: " + pe.getPosition());
+    System.out.println(pe);
+}
+return jsonObj;
+```
 
 ### Improvements
 Any open source project is looking for improvements. If you find something in the API or documents submit a Github Issue [here](https://github.com/farzaa/MoodGGAPIDocs/issues)!
